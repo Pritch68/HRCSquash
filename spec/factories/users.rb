@@ -3,5 +3,6 @@ FactoryGirl.define do
     name "Test User"
     email "test@example.com"
     password "please123"
+    points 1000
   end
 end
