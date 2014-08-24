@@ -17,7 +17,7 @@ class Score < ActiveRecord::Base
 	end
 	
 	def match_cannot_be_in_the_future
-		if date > Date.today
+    if date > Time.now
 			errors.add(:date, "Match cannot be in the future")
 		end
 	end

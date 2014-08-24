@@ -2,8 +2,21 @@
 <p>Top Ten</p>
 
 <table class="table table-striped table-condensed">
+  <% _rank = 0 %>
+  <% _rank2 = 0 %>
+  <% _lastpoints = 0 %>
   <% @users.each do |user| %>
-    <tr><td><%=link_to user.name, user %></td><td><%= user.points.to_s %><td></tr>
+    <% _rank2 = _rank2+1 %>
+    <% if user.points != _lastpoints then %>
+      <% _rank = _rank2 %>
+    <% end %>
+    <% _lastpoints = user.points %>
+		<tr>
+      <td><%= _rank %></td>
+      <td><%=small_gravatar_for user %></td>
+      <td><%=link_to user.name, user %></td>
+      <td><%= user.points.to_s %><td>
+    </tr>
   <% end %>
 </table>
 
