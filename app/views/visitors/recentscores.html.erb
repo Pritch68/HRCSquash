@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="span6 offset3">
+			<table class="table table-striped table-condensed">
+				<caption><h3>Recent Matches</h3></caption>
+				<tr><th>Date</th><th>Result</th><th>Score</th><th>Points</th></tr>
+				<%= render :partial => "frontscore", :collection => @frontscores %>
+			</table>
+  </div>
+</div>

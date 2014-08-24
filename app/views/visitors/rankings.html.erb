@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="span6 offset3">
+		<table class="table table-striped table-condensed">
+			<caption><h3>Current Rankings</h3></caption>
+			<tr><th>Rank</th><th>Name</th><th>Points</th><th>Last Change</th></tr>
+			<% _rank = 0 %>
+			<% _rank2 = 0 %>
+			<% _lastpoints = 0 %>
+		  <% @users.each do |user| %>
+	  			<% _rank2 = _rank2+1 %>
+		  		<% if user.points != _lastpoints then %>
+		  			<% _rank = _rank2 %>
+		  		<% end %>
+	  			<% _lastpoints = user.points %>
+		  		<tr><td><%= _rank %></td><td><%=link_to user.name, user %></td><td><%= user.points.to_s %><td>
+		  		<% if user.lastchange == 0 then %>
+		  			<span class="label">0</span>
+		  		<% else %>
+		  			<% if user.lastchange > 0 then %>
+		  				<span class="label label-success"><%= sprintf("%+d",user.lastchange) %></span>
+		  			<% else %>
+		  				<span class="label label-important"><%= sprintf("%+d",user.lastchange) %></span>
+		  			<% end %>
+		  		<% end %>
+	  		</td></tr>
+			<% end %>
+		</table>
+	</div>
+</div>

@@ -5,4 +5,12 @@ class VisitorsController < ApplicationController
     @frontscores = Score.recent.limit(10)
   end
   
+  def rankings
+		@users = User.active.ranked.all
+	end
+  
+  def recentscores
+		@frontscores = Score.recent.limit(50)
+	end
+  
 end
