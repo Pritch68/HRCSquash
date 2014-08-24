@@ -13,4 +13,7 @@ class VisitorsController < ApplicationController
 		@frontscores = Score.recent.limit(50)
 	end
   
+  def help
+  end
+  
 end
