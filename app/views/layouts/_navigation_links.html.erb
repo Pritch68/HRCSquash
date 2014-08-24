@@ -5,6 +5,10 @@
 <li><%= link_to "Help", "/help" %></li>
 
 <% if user_signed_in? %>
+  <% if current_user.admin %>
+    <li><%= link_to "Admin", "/admin" %></li>
+  <% end %>
+
   <li>
    	<div class="btn-group">
    		<button class="btn btn-primary"><%= current_user.name %></button>
