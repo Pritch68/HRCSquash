@@ -8,7 +8,7 @@ class Score < ActiveRecord::Base
 	validate :no_duplicate_players, :match_cannot_be_in_the_future, :no_duplicate_scores
 	
 	scope :withplayer, lambda {|uid| where("player1_id = ? OR player2_id = ?", uid, uid)}
-	scope :recent, order("scores.date DESC, scores.created_at DESC")
+  scope :recent, -> { order("scores.date DESC, scores.created_at DESC") }
 	
 	def no_duplicate_players
 		if player1_id == player2_id

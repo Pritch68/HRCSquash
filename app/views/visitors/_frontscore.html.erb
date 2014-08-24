@@ -1,0 +1,11 @@
+<tr>
+	<td><%= frontscore.date.strftime("%d %b %Y") %></td>
+	<% if frontscore.matchscore < 3 %>
+		<td><%= link_to frontscore.homeplayer.name, frontscore.homeplayer %> bt <%= link_to frontscore.visitingplayer.name, frontscore.visitingplayer %></td>
+		<td><%= homescore(frontscore.matchscore) %></td>
+	<% else %>
+		<td><%= link_to frontscore.visitingplayer.name, frontscore.visitingplayer %> bt <%= link_to frontscore.homeplayer.name, frontscore.homeplayer %></td>
+		<td><%= visitorscore(frontscore.matchscore) %></td>
+	<% end %>	
+	<td><span class="label"><%= frontscore.player1_change.abs %></span></td>
+</tr>

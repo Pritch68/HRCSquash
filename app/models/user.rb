@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   has_many :homescores, :class_name => "Score", :foreign_key => "player1_id"
 	has_many :visitingscores, :class_name => "Score", :foreign_key => "player2_id"
     	
-	scope :ranked, order("users.points DESC, users.name")
-	scope :active, where("users.deleted = false")
+  scope :ranked, -> { order("users.points DESC, users.name") }
+  scope :active, -> { where("users.deleted = false") }
 	scope :possible_opponents, lambda {|uid| select("id,name").where("id != ?", uid).order("name")}
 	
 	def self.stats pid
