@@ -19,11 +19,14 @@
 		  			<% if user.lastchange > 0 then %>
 		  				<span class="label label-success"><%= sprintf("%+d",user.lastchange) %></span>
 		  			<% else %>
-		  				<span class="label label-important"><%= sprintf("%+d",user.lastchange) %></span>
+            <span class="label label-danger"><%= sprintf("%+d",user.lastchange) %></span>
 		  			<% end %>
 		  		<% end %>
 	  		</td></tr>
 			<% end %>
 		</table>
 	</div>
+</div>
+<div class="center">
+	<%= link_to "Enter a Score", new_score_path, class: "btn btn-large btn-primary" %>
 </div>

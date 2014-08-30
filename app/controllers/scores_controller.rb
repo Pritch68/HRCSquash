@@ -46,7 +46,7 @@ class ScoresController < ApplicationController
   # POST /scores
   # POST /scores.json
   def create
-    @score = Score.new(params[:score])
+    @score = Score.new(score_params)
     @score.player1_id = current_user.id # Ensure player entering the score is recorded as home player
 
 		if @score.player2_id? then
@@ -80,7 +80,7 @@ class ScoresController < ApplicationController
 			  	# end
 			  	# Twitter.update(_tweet)
 
-	        format.html { redirect_to '/home', notice: 'Score was successfully recorded.'}
+          format.html { redirect_to user_path(current_user), notice: 'Score was successfully recorded.'}
 	        format.json { render json: @score, status: :created, location: @score }
 	      else
 	        format.html { render action: "new" }
@@ -122,4 +122,11 @@ class ScoresController < ApplicationController
       format.json { head :no_content }
     end
   end
+    
+  private
+  
+    def score_params
+      params.require(:score).permit(:date, :player1_id, :player2_id, :matchscore)
+    end
+    
 end

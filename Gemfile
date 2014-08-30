@@ -12,6 +12,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
+gem 'simple_form'
 gem 'rails_admin'
 group :development do
   gem 'better_errors'
