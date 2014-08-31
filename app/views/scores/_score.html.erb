@@ -2,34 +2,38 @@
 	<td><%= score.date.strftime("%d %b %Y") %></td>
 	<% if score.player1_id == @user.id %>
 		<% if score.matchscore < 3 %>
-			<td><span class="label label-success">Won</span></td>
+			<td><span class="label label-success">Won
 		<% else %>
-			<td><span class="label label-danger">Lost</span></td>
+			<td><span class="label label-danger">Lost
 		<% end %>
-		<td><%= homescore(score.matchscore) %></td>
+        <%= " "+homescore(score.matchscore) %></span></td>
 		<td>
 			<% if score.player1_change > 0 %>
 				<span class="label label-success">
+        <span class="glyphicon glyphicon-arrow-up"></span>
 			<% else %>
 				<span class="label label-danger">
+        <span class="glyphicon glyphicon-arrow-down"></span>
 			<% end %>
-			<%= score.player1_change ? sprintf("%+d",score.player1_change) : "-" %></span>
+			<%= score.player1_change ? sprintf(" %d",score.player1_change.abs) : "-" %></span>
 		</td>
 		<td><%= link_to score.visitingplayer.name, score.visitingplayer %></td>
 	<% else %>
 		<% if score.matchscore > 2 %>
-			<td><span class="label label-success">Won</span></td>
+			<td><span class="label label-success">Won
 		<% else %>
-			<td><span class="label label-danger">Lost</span></td>
+			<td><span class="label label-danger">Lost
 		<% end %>
-		<td><%= visitorscore(score.matchscore) %></td>
+        <%= " "+visitorscore(score.matchscore) %></span></td>
 		<td>
 			<% if score.player2_change > 0 %>
 				<span class="label label-success">
+          <span class="glyphicon glyphicon-arrow-up"></span>
 			<% else %>
 				<span class="label label-danger">
+          <span class="glyphicon glyphicon-arrow-down"></span>
 			<% end %>
-			<%= score.player2_change ? sprintf("%+d",score.player2_change) : "-" %></span>
+			<%= score.player2_change ? sprintf(" %d",score.player2_change.abs) : "-" %></span>
 		</td>
 		<td><%= link_to score.homeplayer.name, score.homeplayer %></td>
 	<% end %>
