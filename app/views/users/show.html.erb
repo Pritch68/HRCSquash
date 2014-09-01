@@ -1,7 +1,6 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<h1><%= @user.name %></h1>
-		<%= gravatar_for @user %>
 		<p>Points: <%= @user.points if @user.points %></p>
 		<p>Recorded Matches: <%= @stats[:matches].to_s %> (<%= @stats[:wins].to_s %>-<%= (@stats[:matches]-@stats[:wins]).to_s %>)</p>
 	</div>
