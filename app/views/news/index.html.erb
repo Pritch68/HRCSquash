@@ -1,10 +1,17 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3" >
+    <table class="table table-condensed">
     <% @news.each do |news_item| %>
-      <div>
-        <h4><%= news_item.title %></h4>
-        <p><%= news_item.body %></p>
-      </div>
+      <tr>
+        <td><h4><%= news_item.title %></h4></td>
+      </tr>
+      <tr>
+        <td><%= news_item.body %></td>
+      </tr>
+      <tr>
+        <td align=right><i>posted by <%= news_item.user.name %> on <%= news_item.created_at.strftime("%-d %b %Y") %></i></td>
+      </tr>
     <% end %>
+    </table>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901234500) do
+ActiveRecord::Schema.define(version: 20140913182913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20140901234500) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active"
+    t.integer  "user_id"
   end
+
+  add_index "news_posts", ["user_id"], name: "index_news_posts_on_user_id", using: :btree
 
   create_table "scores", force: true do |t|
     t.datetime "date"
