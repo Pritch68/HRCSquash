@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :scores
   resources :news
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   get "/rankings" => "visitors#rankings"

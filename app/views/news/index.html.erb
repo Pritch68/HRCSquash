@@ -3,12 +3,16 @@
     <table class="table table-condensed">
     <% @news.each do |news_item| %>
       <tr>
-        <td><h4><%= news_item.title %></h4></td>
+        <td colspan=2><h4><%= news_item.title %></h4></td>
       </tr>
       <tr>
-        <td><%= news_item.body %></td>
+        <td colspan=2><%= news_item.body %></td>
       </tr>
       <tr>
+        <td>
+          <div><%= button_to "Edit", edit_news_path(news_item), class: 'btn btn-primary btn-xs' %></div>
+          <div><%= button_to "Delete", news_path(news_item), class: 'btn btn-danger btn-xs', method: :delete %></div>
+        </td>
         <td align=right><i>posted by <%= news_item.user.name %> on <%= news_item.created_at.strftime("%-d %b %Y") %></i></td>
       </tr>
     <% end %>
