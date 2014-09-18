@@ -1,21 +1,19 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3" >
-    <table class="table table-condensed">
     <% @news.each do |news_item| %>
-      <tr>
-        <td colspan=2><h4><%= news_item.title %></h4></td>
-      </tr>
-      <tr>
-        <td colspan=2><%= news_item.body %></td>
-      </tr>
-      <tr>
-        <td>
-          <div><%= button_to "Edit", edit_news_path(news_item), class: 'btn btn-primary btn-xs' %></div>
-          <div><%= button_to "Delete", news_path(news_item), class: 'btn btn-danger btn-xs', method: :delete %></div>
-        </td>
-        <td align=right><i>posted by <%= news_item.user.name %> on <%= news_item.created_at.strftime("%-d %b %Y") %></i></td>
-      </tr>
+      <div class="row">
+        <div class="col-lg-12"><h4><%= news_item.title %></h4></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12"><%= simple_format(news_item.body) %></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12"><small><i>posted by <%= news_item.user.name %> on <%= news_item.created_at.strftime("%-d %b %Y") %></i></small></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12"><div style="float:left;"><%= link_to "Edit", edit_news_post_path(news_item), class: 'btn btn-primary btn-xs' %></div><div style="float:left;"><%= link_to "Delete", news_post_path(news_item), class: 'btn btn-danger btn-xs', method: :delete %></div></div>
+      </div>
+      <div class="row">&nbsp;</div>
     <% end %>
-    </table>
   </div>
 </div>

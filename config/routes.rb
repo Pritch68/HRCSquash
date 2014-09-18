@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :scores
-  resources :news
+  resources :news_posts, controller: "news", path: "news"
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
