@@ -1,7 +1,24 @@
 class NewsController < ApplicationController
   
   def index
-    @news = NewsPost.all
+    @news = NewsPost.all.order(created_at: :desc)
+  end
+
+  def new
+    @news = NewsPost.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @score }
+    end
+  end
+  
+  def create
+    @news = NewsPost.new(news_params)
+    @news.active = true
+    @news.user = current_user
+    @news.save
+    redirect_to news_posts_path, notice: 'News item created'
   end
   
   def destroy

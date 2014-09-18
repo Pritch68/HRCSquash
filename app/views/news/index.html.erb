@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3" >
+    <div class="row">
+      <div class="col-lg-12"><div style="float:left;"><%= link_to "Create New Post", new_news_post_path, class: 'btn btn-primary btn-xs' %></div></div>
+    </div>
     <% @news.each do |news_item| %>
       <div class="row">
         <div class="col-lg-12"><h4><%= news_item.title %></h4></div>
