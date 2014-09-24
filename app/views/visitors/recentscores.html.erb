@@ -5,5 +5,6 @@
 				<tr><th>Date</th><th>Result</th><th>Score</th><th>Points</th></tr>
 				<%= render :partial => "frontscore", :collection => @frontscores %>
 			</table>
+    <div class="text-center"><%= link_to "Enter a Score", new_score_path, class: "btn btn-large btn-primary" %></div>
   </div>
 </div>

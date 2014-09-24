@@ -24,7 +24,7 @@ class NewsController < ApplicationController
   def destroy
     @news = NewsPost.find(params[:id])
     @news.destroy
-    redirect_to news_posts_path, alert: 'News post deleted.'
+    redirect_to news_posts_path, alert: 'News item deleted.'
   end
   
   def edit
@@ -36,7 +36,7 @@ class NewsController < ApplicationController
     
     respond_to do |format|
       if @news.update_attributes(news_params)
-        format.html { redirect_to news_posts_path, notice: 'News post was successfully updated.' }
+        format.html { redirect_to news_posts_path, notice: 'News item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
