@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   
   has_many :homescores, :class_name => "Score", :foreign_key => "player1_id"
 	has_many :visitingscores, :class_name => "Score", :foreign_key => "player2_id"
-  has_many :newsposts
+  has_many :news_posts
     	
   scope :ranked, -> { order("users.points DESC, users.name") }
   scope :active, -> { where("deleted = false") }
