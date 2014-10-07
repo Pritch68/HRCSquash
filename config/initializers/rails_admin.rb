@@ -8,6 +8,14 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
+  RailsAdmin.config do |config|
+    config.authorize_with do |controller|
+      unless current_user.try(:admin?)
+        redirect_to main_app.root_path
+      end
+    end
+  end
+  
   ## == Cancan ==
   # config.authorize_with :cancan
 
