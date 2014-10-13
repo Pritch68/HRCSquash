@@ -63,8 +63,8 @@ class Score < ActiveRecord::Base
 	# D = 1000, K = {50,38,25} based on 3-0,3-1,3-2 result
 	def self.calculate_elo p1, p2, s
 		
-		_we1 = 1.0 / (10**((p2-p1)/1000.0)+1)
-    _we2 = 1.0 / (10**((p1-p2)/1000.0)+1)
+		_we1 = 1.0 / (1000**((p2-p1)/1000.0)+1)
+    _we2 = 1.0 / (1000**((p1-p2)/1000.0)+1)
 
 		case s
 		when 0 # p1 won 3-0
