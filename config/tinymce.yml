@@ -1,0 +1,7 @@
+menubar: false
+toolbar:
+  - bold italic | undo redo | bullist numlist outdent indent | table
+  - link
+plugins:
+  - table
+
