@@ -17,8 +17,11 @@ class NewsController < ApplicationController
     @news = NewsPost.new(news_params)
     @news.active = true
     @news.user = current_user
-    @news.save
-    redirect_to news_posts_path, notice: 'News item created'
+    if @news.save
+      redirect_to news_posts_path, notice: 'News item created'
+    else
+      render 'new'
+    end
   end
   
   def destroy
