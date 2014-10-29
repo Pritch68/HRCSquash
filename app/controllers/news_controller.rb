@@ -4,6 +4,10 @@ class NewsController < ApplicationController
     @news = NewsPost.all.order(created_at: :desc)
   end
 
+  def show
+    @news = NewsPost.find(params[:id])
+  end
+  
   def new
     @news = NewsPost.new
 

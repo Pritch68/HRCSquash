@@ -1,32 +1,41 @@
 <div class="row">
   <div class="col-md-6 col-lg-4 col-lg-offset-2">
-    <table class="table table-hover table-condensed">
-      <caption><h3>Top Ten</h3></caption>
-      <tr><th>Rank</th><th>Name</th><th>Points</th></tr>
-      <% _rank = 0 %>
-      <% _rank2 = 0 %>
-      <% _lastpoints = 0 %>
-      <% @users.each do |user| %>
-        <% _rank2 = _rank2+1 %>
-        <% if user.points != _lastpoints then %>
-          <% _rank = _rank2 %>
+    <div class="row">
+      <table class="table table-hover table-condensed">
+        <caption><h3>Recent News</h3></caption>
+        <%= render :partial => "frontnews", :collection => @news %>
+      </table>
+    </div>
+    <div class="row">
+      <table class="table table-hover table-condensed">
+        <caption><h3>Top Ten</h3></caption>
+        <tr><th>Rank</th><th>Name</th><th>Points</th></tr>
+        <% _rank = 0 %>
+        <% _rank2 = 0 %>
+        <% _lastpoints = 0 %>
+        <% @users.each do |user| %>
+          <% _rank2 = _rank2+1 %>
+          <% if user.points != _lastpoints then %>
+            <% _rank = _rank2 %>
+          <% end %>
+          <% _lastpoints = user.points %>
+          <tr>
+            <td><%= _rank %></td>
+            <td><%=link_to user.name, user %></td>
+            <td><%= user.points.to_s %></td>
+          </tr>
         <% end %>
-        <% _lastpoints = user.points %>
-        <tr>
-          <td><%= _rank %></td>
-          <td><%=link_to user.name, user %></td>
-          <td><%= user.points.to_s %></td>
-        </tr>
-      <% end %>
-    </table>
+      </table>
+    </div>
   </div>
   <div class="col-md-6 col-lg-4">
+    <div class="row">
       <table class="table table-hover table-condensed">
-      <caption><h3>Recent Scores</h3></caption>
-      <tr><th>Date</th><th>Result</th><th>Score</th><th>Points</th></tr>
-      <%= render :partial => "frontscore", :collection => @frontscores %>
-    </table>
-    <div class="text-center"><%= link_to "Enter a Score", new_score_path, class: "btn btn-large btn-primary" %></div>
-  </div>
+        <caption><h3>Recent Scores</h3></caption>
+        <tr><th>Date</th><th>Result</th><th>Score</th><th>Points</th></tr>
+        <%= render :partial => "frontscore", :collection => @frontscores %>
+      </table>
+      <div class="text-center"><%= link_to "Enter a Score", new_score_path, class: "btn btn-large btn-primary" %></div>
+    </div>
 </div>
 	  

@@ -4,4 +4,6 @@ class NewsPost < ActiveRecord::Base
   
   validates_presence_of :title
   
+  scope :recent, -> { order("created_at DESC") }
+  
 end
