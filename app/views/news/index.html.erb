@@ -10,7 +10,7 @@
         <div class="col-lg-12"><h4><%= news_item.title %></h4></div>
       </div>
       <div class="row">
-        <div class="col-lg-12"><%= simple_format(news_item.body) %></div>
+        <div class="col-lg-12"><%= news_item.body.html_safe %></div>
       </div>
       <div class="row">
         <div class="col-lg-12"><small><i>posted by <%= news_item.user.name %> on <%= news_item.created_at.strftime("%-d %b %Y") %></i></small></div>
