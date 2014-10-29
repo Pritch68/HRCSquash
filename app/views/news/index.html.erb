@@ -7,7 +7,9 @@
     <% end %>
     <% @news.each do |news_item| %>
       <div class="row">
-        <div class="col-lg-12"><h4><%= news_item.title %></h4></div>
+        <div class="col-lg-12">
+          <h4><%= news_item.title %></h4>
+        </div>
       </div>
       <div class="row">
         <div class="col-lg-12"><%= news_item.body.html_safe %></div>
