@@ -1,7 +1,9 @@
 menubar: false
 toolbar:
-  - bold italic | undo redo | bullist numlist outdent indent | table
-  - link
+  - bold italic | undo redo | bullist numlist outdent indent | table | link unlink | image
+
 plugins:
   - table
+  - link
+  - image
 
