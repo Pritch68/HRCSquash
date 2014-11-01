@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :scores
   resources :news_posts, controller: "news", path: "news"
+  resources :tanddposts, controller: "tanddpost", path: "tandd"
+  resources :houseleagueposts, controller: "houseleaguepost", path: "houseleague"
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   

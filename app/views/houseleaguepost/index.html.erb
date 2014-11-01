@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3" >
+    <% if current_user.admin %>
+      <div class="row">
+        <div class="col-lg-12"><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-plus"></span> Create New Post'.html_safe, new_houseleaguepost_path, class: 'btn btn-primary btn-xs' %></div></div>
+      </div>
+    <% end %>
+    <% @news.each do |news_item| %>
+      <div class="row">
+        <div class="col-lg-12">
+          <h4><%= news_item.title %></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12"><%= news_item.body.html_safe %></div>
+      </div>
+      <% if current_user.admin %>
+        <div class="row">
+          <div class="col-lg-12"><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-pencil"></span> Edit'.html_safe, edit_tanddpost_path(news_item), class: 'btn btn-primary btn-xs' %></div><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-trash"></span> Delete'.html_safe, tanddpost_path(news_item), class: 'btn btn-danger btn-xs', method: :delete %></div></div>
+        </div>
+      <% end %>
+      <div class="row">&nbsp;</div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module HouseleaguepostHelper
+end
