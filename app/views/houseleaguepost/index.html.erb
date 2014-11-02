@@ -16,7 +16,7 @@
       </div>
       <% if current_user.admin %>
         <div class="row">
-          <div class="col-lg-12"><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-pencil"></span> Edit'.html_safe, edit_tanddpost_path(news_item), class: 'btn btn-primary btn-xs' %></div><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-trash"></span> Delete'.html_safe, tanddpost_path(news_item), class: 'btn btn-danger btn-xs', method: :delete %></div></div>
+          <div class="col-lg-12"><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-pencil"></span> Edit'.html_safe, edit_houseleaguepost_path(news_item), class: 'btn btn-primary btn-xs' %></div><div style="float:left;"><%= link_to '<span class="glyphicon glyphicon-trash"></span> Delete'.html_safe, houseleaguepost_path(news_item), class: 'btn btn-danger btn-xs', method: :delete %></div></div>
         </div>
       <% end %>
       <div class="row">&nbsp;</div>
