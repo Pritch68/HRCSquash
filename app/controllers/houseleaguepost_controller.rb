@@ -40,7 +40,7 @@ class HouseleaguepostController < ApplicationController
     
     respond_to do |format|
       if @news.update_attributes(news_params)
-        format.html { redirect_to houseleaguepost_path, notice: 'House League item was successfully updated.' }
+        format.html { redirect_to houseleagueposts_path, notice: 'House League item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
