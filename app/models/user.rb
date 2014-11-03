@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :news_posts
     	
   scope :ranked, -> { order("users.points DESC, users.name") }
-  scope :active, -> { where("deleted = false") }
+  scope :active, -> { where("deleted = false AND nonplayer = false") }
 	scope :possible_opponents, lambda {|uid| select("id,name").where("id != ?", uid).order("name")}
 	
   def defaults
@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
     self.lastchange ||= 0
     self.admin = false if self.admin.nil?
     self.deleted = false if self.deleted.nil?
+    self.nonplayer = false if self.nonplayer.nil?
   end
   
 	def self.stats pid
