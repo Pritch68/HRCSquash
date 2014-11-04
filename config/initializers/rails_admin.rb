@@ -30,6 +30,7 @@ RailsAdmin.config do |config|
       field :name
       field :email
       field :sign_in_count
+      field :current_sign_in_at
     end
   end
   
