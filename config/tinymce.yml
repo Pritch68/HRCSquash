@@ -6,4 +6,6 @@ plugins:
   - table
   - link
   - image
+  - paste
+paste_retain_style_properties: "font-size"
 
