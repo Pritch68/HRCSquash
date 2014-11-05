@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all.order(startdate: :desc)
+    @events = Event.all.order(startdate: :asc)
   end
 
   def show
