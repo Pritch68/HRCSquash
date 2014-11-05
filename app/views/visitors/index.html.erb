@@ -31,6 +31,12 @@
   <div class="col-md-6 col-lg-4">
     <div class="row">
       <table class="table table-hover table-condensed">
+        <caption><h3>Upcoming Events</h3></caption>
+        <%= render :partial => "frontevent", :collection => @events %>
+      </table>
+    </div>
+    <div class="row">
+      <table class="table table-hover table-condensed">
         <caption><h3>Recent Scores</h3></caption>
         <tr><th>Date</th><th>Result</th><th>Score</th><th>Points</th></tr>
         <%= render :partial => "frontscore", :collection => @frontscores %>

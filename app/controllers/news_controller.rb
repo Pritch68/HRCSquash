@@ -13,7 +13,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @score }
+      format.json { render json: @news }
     end
   end
   

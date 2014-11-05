@@ -1,0 +1,13 @@
+<%= tinymce_assets %>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3" >
+    <%= simple_form_for @event do |f| %>
+      <%= f.input :title, required: true, input_html: { size: 75 } %>
+      <%= f.input :startdate, required: true %>
+      <%= f.input :enddate, required: true %>
+      <%= f.input :body, input_html: { class: 'tinymce', rows:35, cols: 100 } %><%= tinymce %>
+    
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
