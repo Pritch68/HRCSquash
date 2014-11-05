@@ -7,8 +7,8 @@ class Event < ActiveRecord::Base
   scope :upcoming, lambda { where("enddate >= ?", DateTime.now).order("startdate") }
   
   def defaults
-    self.startdate = DateTime.now.change({hour: 18})
-    self.enddate = DateTime.now.change({hour: 22})
+    self.startdate ||= DateTime.now.change({hour: 18})
+    self.enddate ||= DateTime.now.change({hour: 22})
   end
   
 end
