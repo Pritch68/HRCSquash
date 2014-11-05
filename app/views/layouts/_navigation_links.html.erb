@@ -4,9 +4,13 @@
   <li><%= link_to "Events", "/events" %></li>
   <li><%= link_to "Rankings", "/rankings" %></li>
   <li><%= link_to "Scores", "/recentscores" %></li>
-  <li><%= link_to "T&D", "/tandd" %></li>
-  <li><%= link_to "House League", "/houseleague" %></li>
-  <!--<li><%= link_to "House League", "/houseleague" %></li>-->
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Leagues<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to "T&D", "/tandd" %></li>
+      <li><%= link_to "House League", "/houseleague" %></li>
+    </ul>
+  </li>
   <li><%= link_to "Help", "/help" %></li>
   <li><a href="http://www.headwatersracquetclub.com">HRC Website</a></li>
 </ul>
