@@ -7,25 +7,8 @@
       </table>
     </div>
     <div class="row">
-      <table class="table table-hover table-condensed">
-        <caption><h3>Top Ten</h3></caption>
-        <tr><th>Rank</th><th>Name</th><th>Points</th></tr>
-        <% _rank = 0 %>
-        <% _rank2 = 0 %>
-        <% _lastpoints = 0 %>
-        <% @users.each do |user| %>
-          <% _rank2 = _rank2+1 %>
-          <% if user.points != _lastpoints then %>
-            <% _rank = _rank2 %>
-          <% end %>
-          <% _lastpoints = user.points %>
-          <tr>
-            <td><%= _rank %></td>
-            <td><%=link_to user.name, user %></td>
-            <td><%= user.points.to_s %></td>
-          </tr>
-        <% end %>
-      </table>
+      <img src="http://i.imgur.com/dEkrCrm.jpg" width="75%" title="Jeremy Serves Against Fit City in Div 4 T&D Play"/>
+      <p align="center">The Div 4 team took a 5-0 victory on Friday against Fit City!</p>
     </div>
   </div>
   <div class="col-md-6 col-lg-4">
