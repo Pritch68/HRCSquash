@@ -5,6 +5,8 @@ class VisitorsController < ApplicationController
     @frontscores = Score.recent.limit(15)
     @news = NewsPost.recent.limit(3)
     @events = Event.upcoming.limit(15)
+    
+    flash.now[:notice] = 'Single Day Tournament This Saturday - Contact Leah or Front Desk to Register!'
   end
   
   def rankings
