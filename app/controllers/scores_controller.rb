@@ -47,8 +47,11 @@ class ScoresController < ApplicationController
   # POST /scores.json
   def create
     @score = Score.new(score_params)
-    @score.player1_id = current_user.id # Ensure player entering the score is recorded as home player
-
+    
+    if !current_user.admin then
+      @score.player1_id = current_user.id # Ensure player entering the score is recorded as home player
+    end
+      
 		if @score.player2_id? then
 	  	# Get current point total for each player
 			_u1 = User.find(@score.player1_id)
@@ -80,8 +83,14 @@ class ScoresController < ApplicationController
 			  	# end
 			  	# Twitter.update(_tweet)
 
-          format.html { redirect_to user_path(current_user), notice: 'Score was successfully recorded.'}
-	        format.json { render json: @score, status: :created, location: @score }
+          if !current_user.admin
+            format.html { redirect_to user_path(current_user), notice: 'Score was successfully recorded.'}
+	          
+          else
+            format.html { redirect_to root_path, notice: 'Score was successfully recorded.'}
+          end
+          format.json { render json: @score, status: :created, location: @score }
+          
 	      else
 	        format.html { render action: "new" }
 	        format.json { render json: @score.errors, status: :unprocessable_entity }

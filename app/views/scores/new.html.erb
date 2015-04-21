@@ -1,1 +1,5 @@
-<%= render 'form' %>
+<% if current_user.admin %>
+  <%= render 'admin_form' %>
+<% else %>
+  <%= render 'form' %>
+<% end %>
